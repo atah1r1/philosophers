@@ -6,7 +6,7 @@
 #    By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/24 11:42:25 by atahiri           #+#    #+#              #
-#    Updated: 2021/11/25 13:31:41 by atahiri          ###   ########.fr        #
+#    Updated: 2021/11/25 22:26:45 by atahiri          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ INCLUDES =	philosophers.h
 SRCS =	main.c \
 		check_data.c \
 		start.c \
+		time.c \
 		init_philos.c \
 		helpers/ft_atoi.c \
 		helpers/ft_isalpha.c \
