@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 11:40:00 by atahiri           #+#    #+#             */
-/*   Updated: 2021/11/25 00:50:50 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/11/25 13:31:33 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,5 @@ int			ft_isdigit(int c);
 t_philo		*init_philos(int argc, char **argv);
 t_global	*get_data(int argc, char **argv);
 int			check_data(t_global *data);
+int			start(pthread_t	*threads, t_philo *philos);
 #endif
