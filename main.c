@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 11:39:28 by atahiri           #+#    #+#             */
-/*   Updated: 2021/11/25 22:29:11 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/12/03 12:04:53 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,5 @@ int		main(int argc, char **argv)
 		pthread_mutex_init(&philos->state->forks[i], NULL);
 	if (start(threads, philos) == 0)
 		return (0);
-	// printf("nb: %d\n", philos->state->philos_nb);
-	// printf("time to die: %llu\n", philos->state->time_to_die);
-	// printf("time to eat: %llu\n", philos->state->time_to_eat);
-	// printf("time to sleep: %llu\n", philos->state->time_to_sleep);
-	// printf("must eat number: %d\n", philos->state->must_eat_nb);
 	return (0);
 }

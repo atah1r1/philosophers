@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 11:40:00 by atahiri           #+#    #+#             */
-/*   Updated: 2021/11/25 22:28:15 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/12/03 12:24:12 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,7 @@ t_philo				*init_philos(int argc, char **argv);
 t_global			*get_data(int argc, char **argv);
 int					check_data(t_global *data);
 int					start(pthread_t	*threads, t_philo *philos);
+unsigned long long	timestamp(t_philo *philo);
+void				wesleep(unsigned long long time);
 unsigned long long	get_time(void);
 #endif
