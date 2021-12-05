@@ -1,0 +1,28 @@
+---> PHILOSOPHERS <---
+
+
+		argv[1]				argv[2]		 argv[3]		argv[4]						argv[5]
+number_of_philosophers | time_to_die | time_to_eat | time_to_sleep | [number_of_times_each_philosopher_must_eat]
+
+// number of philosophers === number of forks
+// times in miliseconds
+// time_to_die : if a philosopher doesn't start eating after starting their last meal or the beginning of the simulation, it dies
+// time_to_eat : the time it takes for a philosopher to eat. 
+// time_to_sleep : is the time the philosopher will spend sleeping
+// number_of_times_each_philosopher_must_eat :	argument is optional if all
+												philosophers eat at least (nb)
+												the simulation will stop
+												 If not specified, the simulation
+												 will stop only at the death of a
+												 philosopher
+// Each philosopher should be given a number from 1 to ’number_of_philosophers’
+
+// logs
+		◦ timestamp_in_ms X has taken a fork
+		◦ timestamp_in_ms X is eating
+		◦ timestamp_in_ms X is sleeping
+		◦ timestamp_in_ms X is thinking
+		◦ timestamp_in_ms X died
+	// The status printed should not be scrambled or intertwined with another philosopher’s status
+	// • You can’t have more than 10 ms between the death of a philosopher and when it will print its death
+	// Again, philosophers should avoid dying!

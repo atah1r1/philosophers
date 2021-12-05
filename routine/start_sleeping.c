@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_data.c                                       :+:      :+:    :+:   */
+/*   start_sleeping.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/24 23:43:18 by atahiri           #+#    #+#             */
-/*   Updated: 2021/12/05 10:09:30 by atahiri          ###   ########.fr       */
+/*   Created: 2021/12/05 10:42:32 by atahiri           #+#    #+#             */
+/*   Updated: 2021/12/05 10:44:41 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philosophers.h"
+#include "../philosophers.h"
 
-int		check_data(t_global *data)
+void	start_sleeping(t_philo *philo)
 {
-	if (data->philos_nb <= 0 || data->time_to_die <= 0
-		|| data->time_to_eat <= 0 || data->time_to_sleep <= 0)
-	{
-		return (1);
-	}
-	if (data->it_must_eat == 1 && data->must_eat_nb <= 0)
-		return (1);
-	return (0);
+	philo->status = SLEEPING;
+	pthread_mutex_lock(&philo->state->printing_lock);
+	printf("is sleeping");
+	pthread_mutex_unlock(&philo->state->printing_lock);
+	wesleep(philo->state->time_to_sleep);
 }
