@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 11:40:00 by atahiri           #+#    #+#             */
-/*   Updated: 2021/12/05 10:46:02 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/12/05 11:05:25 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ typedef struct s_philo {
 }				t_philo;
 
 int					ft_atoi(const char *str);
-int					ft_isalpha(int c);
 int					ft_isdigit(int c);
 t_philo				*init_philos(int argc, char **argv);
 t_global			*get_data(int argc, char **argv);

@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 23:27:29 by atahiri           #+#    #+#             */
-/*   Updated: 2021/12/03 12:17:17 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/12/05 11:25:14 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,7 @@ t_philo		*init_philos(int argc, char **argv)
 	t_philo			*philos;
 	t_global		*data;
 	int				i;
-	struct timeval	now;
 
-	gettimeofday(&now, NULL);
 	data = get_data(argc, argv);
 	if (check_data(data))
 	{
