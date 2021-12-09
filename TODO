@@ -26,3 +26,4 @@ number_of_philosophers | time_to_die | time_to_eat | time_to_sleep | [number_of_
 	// The status printed should not be scrambled or intertwined with another philosopher’s status
 	// • You can’t have more than 10 ms between the death of a philosopher and when it will print its death
 	// Again, philosophers should avoid dying!
+
