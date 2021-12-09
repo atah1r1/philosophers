@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 11:40:00 by atahiri           #+#    #+#             */
-/*   Updated: 2021/12/05 11:05:25 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/12/09 15:22:22 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ typedef struct s_philo {
 	int					id;
 	int					nb_eats;
 	unsigned long long	last_eat;
-	pthread_t			t_id;
 	pthread_mutex_t		eating;
 	t_global			*state;
 }				t_philo;
