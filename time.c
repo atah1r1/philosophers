@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 22:26:02 by atahiri           #+#    #+#             */
-/*   Updated: 2021/12/03 12:23:59 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/12/10 15:12:30 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ unsigned long long	get_time(void)
 	return ((now.tv_sec * 1000) + (now.tv_usec / 1000));
 }
 
-void	wesleep(unsigned long long time)
+void	myusleep(unsigned long long time)
 {
 	unsigned long long	end;
 

@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 13:27:24 by atahiri           #+#    #+#             */
-/*   Updated: 2021/12/09 11:41:02 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/12/10 17:24:11 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	*routine(void	*data)
 {
 	t_philo	*philo;
-	// int		id;
 
 	philo = (t_philo *)data;
 	while (1)
@@ -63,7 +62,7 @@ int		start(pthread_t	*threads, t_philo *philos)
 	while (++i < philos->state->philos_nb)
 	{
 		if (i == 0)
-			philos[0].state->start_time = get_time();
+			philos->state->start_time = get_time();
 		pthread_create(&threads[i], NULL, &routine, &philos[i]);
 	}
 	pthread_create(&super, NULL, supervisor, (void *)philos);

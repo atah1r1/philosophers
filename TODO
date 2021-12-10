@@ -27,3 +27,4 @@ number_of_philosophers | time_to_die | time_to_eat | time_to_sleep | [number_of_
 	// • You can’t have more than 10 ms between the death of a philosopher and when it will print its death
 	// Again, philosophers should avoid dying!
 
+// allocate to philos struct with number of philos

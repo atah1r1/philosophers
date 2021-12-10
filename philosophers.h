@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 11:40:00 by atahiri           #+#    #+#             */
-/*   Updated: 2021/12/09 15:22:22 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/12/10 15:35:40 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,12 @@ int					ft_atoi(const char *str);
 int					ft_isdigit(int c);
 t_philo				*init_philos(int argc, char **argv);
 t_global			*get_data(int argc, char **argv);
-int					check_data(t_global *data);
 int					start(pthread_t	*threads, t_philo *philos);
 void				take_forks(t_philo *philo);
 void				start_eating(t_philo *philo);
 void				start_sleeping(t_philo *philo);
 void				start_thinking(t_philo *philo);
 unsigned long long	timestamp(t_philo *philo);
-void				wesleep(unsigned long long time);
+void				myusleep(unsigned long long time);
 unsigned long long	get_time(void);
 #endif

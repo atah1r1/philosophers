@@ -6,7 +6,7 @@
 #    By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/24 11:42:25 by atahiri           #+#    #+#              #
-#    Updated: 2021/12/09 10:08:25 by atahiri          ###   ########.fr        #
+#    Updated: 2021/12/10 15:35:45 by atahiri          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,6 @@ FLAGS = -Wall -Wextra -Werror #-g -fsanitize=address
 INCLUDES =	philosophers.h
 
 SRCS =	main.c \
-		check_data.c \
 		start.c \
 		time.c \
 		init_philos.c \
