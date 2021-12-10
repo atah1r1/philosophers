@@ -12,13 +12,14 @@
 
 #include "philosophers.h"
 
-void	*routine(void	*data)
+void	*routine(void *data)
 {
 	t_philo	*philo;
 
 	philo = (t_philo *)data;
 	while (1)
 	{
+		// puts("here");
 		take_forks(philo);
 		start_eating(philo);
 		start_sleeping(philo);
@@ -30,24 +31,30 @@ void	*routine(void	*data)
 void	*supervisor(void *philos)
 {
 	t_philo			*philo;
-	int				time;
+	// unsigned long long 				time;
 	int				i;
 
 	philo = (t_philo *)philos;
+	// printf ("nb %d\n", philo[0].state->philos_nb);
+	usleep(100);
 	while (1)
 	{
-		i = -1;
-		while (++i < philo[0].state->philos_nb)
+		i = 0;
+		while (i < philo[0].state->philos_nb)
 		{
-			time = timestamp(philo) - philo[i].state->start_time;
-			if ((time - philo[i].last_eat) >= philo[i].state->time_to_die
-				&& philo[i].status != EATING)
+			printf ("id %d \ntime : %lld\n,  last: %lld\n , start: %lld\n, status %d\n",philo[i].id,
+			(get_time() - philo[i].last_eat), philo[i].last_eat, get_time(), philo[i].status);
+
+			if ((get_time() - philo[i].last_eat) >= philo[i].state->time_to_die
+				&& !philo[i].eat)
 			{
 				pthread_mutex_lock(&philo->state->printing_lock);
 				pthread_mutex_lock(&philo[i].eating);
-				printf("%lld %d dead", timestamp(philo), philo->id + 1);
+				printf("%lld %d dead\n", timestamp(philo), philo->id + 1);
 				return (NULL);
 			}
+			// usleep(500);
+			i++;
 		}
 	}
 	return (NULL);
@@ -55,6 +62,7 @@ void	*supervisor(void *philos)
 
 int		start(pthread_t	*threads, t_philo *philos)
 {
+	puts("start");
 	int			i;
 	pthread_t	super;
 

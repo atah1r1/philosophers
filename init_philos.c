@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 23:27:29 by atahiri           #+#    #+#             */
-/*   Updated: 2021/12/10 17:37:15 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/12/10 19:56:35 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,13 +68,15 @@ t_philo		*init_philos(int argc, char **argv)
 		pthread_mutex_init(&data->forks[i], NULL);
 
 	// init philos struct
-	philos = malloc(sizeof(t_global) * data->philos_nb);
+	philos = malloc(sizeof(t_philo) * data->philos_nb);
 	i = -1;
 	while (++i < data->philos_nb)
 	{
 		philos[i].id = i;
 		philos[i].state = data;
+		philos[i].eat = 0;
 		philos[i].nb_eats = 0;
+		philos[i].last_eat = get_time();
 		pthread_mutex_init(&philos[i].eating, NULL);
 	}
 	return (philos);

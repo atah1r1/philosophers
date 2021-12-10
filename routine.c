@@ -14,22 +14,22 @@
 
 void	start_eating(t_philo *philo)
 {
-	int	r;
-	int	l;
-
-	r = (philo->id + 1) % philo->state->philos_nb;
-	l = philo->id;
 	philo->status = EATING;
+	philo->eat = 1;
 	pthread_mutex_lock(&philo->eating);
 	pthread_mutex_lock(&philo->state->printing_lock);
+
 	printf("%lld %d is eating\n", timestamp(philo), philo->id + 1);
+	philo->last_eat = get_time();
+
 	pthread_mutex_unlock(&philo->state->printing_lock);
+	pthread_mutex_unlock(&philo->eating);
+	
 	philo->nb_eats += 1;
 	myusleep(philo->state->time_to_eat);
-	philo->last_eat = timestamp(philo);
-	pthread_mutex_unlock(&philo->state->forks[r]);
-	pthread_mutex_unlock(&philo->state->forks[l]);
-	pthread_mutex_unlock(&philo->eating);
+	philo->eat = 0;
+	pthread_mutex_unlock(&philo->state->forks[(philo->id + 1) % philo->state->philos_nb]);
+	pthread_mutex_unlock(&philo->state->forks[philo->id]);
 }
 
 void	start_sleeping(t_philo *philo)
@@ -51,22 +51,27 @@ void	start_thinking(t_philo *philo)
 
 void		take_forks(t_philo *philo)
 {
-	int		r;
-	int		l;
-
-	r = (philo->id + 1) % philo->state->philos_nb;
-	l = philo->id;
-	if ((philo->id + 1) % 2 == 0)
+	if (philo->id % 2 != 0)
 	{
-		pthread_mutex_lock(&philo->state->forks[r]);
-		pthread_mutex_lock(&philo->state->forks[l]);
+		pthread_mutex_lock(&philo->state->forks[(philo->id + 1) % philo->state->philos_nb]);
+		pthread_mutex_lock(&philo->state->printing_lock);
+		printf("%lld %d has taken a fork\n", timestamp(philo), philo->id + 1);
+		pthread_mutex_unlock(&philo->state->printing_lock);
+		pthread_mutex_lock(&philo->state->forks[philo->id]);
+		pthread_mutex_lock(&philo->state->printing_lock);
+		printf("%lld %d has taken a fork\n", timestamp(philo), philo->id + 1);
+		pthread_mutex_unlock(&philo->state->printing_lock);
 	}
 	else
 	{
-		pthread_mutex_lock(&philo->state->forks[l]);
-		pthread_mutex_lock(&philo->state->forks[r]);
+		pthread_mutex_lock(&philo->state->forks[philo->id]);
+		pthread_mutex_lock(&philo->state->printing_lock);
+		printf("%lld %d has taken a fork\n", timestamp(philo), philo->id + 1);
+		pthread_mutex_unlock(&philo->state->printing_lock);
+		pthread_mutex_lock(&philo->state->forks[(philo->id + 1) % philo->state->philos_nb]);
+		pthread_mutex_lock(&philo->state->printing_lock);
+		printf("%lld %d has taken a fork\n", timestamp(philo), philo->id + 1);
+		pthread_mutex_unlock(&philo->state->printing_lock);
 	}
-	pthread_mutex_lock(&philo->state->printing_lock);
-	printf("%lld %d has taken a fork\n", timestamp(philo), philo->id + 1);
-	pthread_mutex_unlock(&philo->state->printing_lock);
+
 }

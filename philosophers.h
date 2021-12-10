@@ -41,6 +41,7 @@ typedef struct	s_global
 
 typedef struct s_philo {
 	t_status			status;
+	int					eat;
 	int					id;
 	int					nb_eats;
 	unsigned long long	last_eat;
