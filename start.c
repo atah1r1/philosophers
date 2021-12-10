@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 13:27:24 by atahiri           #+#    #+#             */
-/*   Updated: 2021/12/10 23:37:56 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/12/10 23:53:52 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	*routine(void *data)
 	philo = (t_philo *)data;
 	while (1)
 	{
+		// puts("here");
 		take_forks(philo);
 		start_eating(philo);
 		start_sleeping(philo);
@@ -33,6 +34,8 @@ void	*supervisor(void *philos)
 	int				i;
 
 	philo = (t_philo *)philos;
+	// printf ("nb %d\n", philo[0].state->philos_nb);
+	usleep(100);
 	while (1)
 	{
 		i = 0;
@@ -58,6 +61,7 @@ void	*supervisor(void *philos)
 
 int		start(pthread_t	*threads, t_philo *philos)
 {
+	puts("start");
 	int			i;
 	pthread_t	super;
 
