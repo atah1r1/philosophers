@@ -6,13 +6,13 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 13:27:24 by atahiri           #+#    #+#             */
-/*   Updated: 2021/12/10 17:24:11 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/12/10 23:37:56 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
-void	*routine(void	*data)
+void	*routine(void *data)
 {
 	t_philo	*philo;
 
@@ -30,24 +30,27 @@ void	*routine(void	*data)
 void	*supervisor(void *philos)
 {
 	t_philo			*philo;
-	int				time;
 	int				i;
 
 	philo = (t_philo *)philos;
 	while (1)
 	{
-		i = -1;
-		while (++i < philo[0].state->philos_nb)
+		i = 0;
+		while (i < philo[0].state->philos_nb)
 		{
-			time = timestamp(philo) - philo[i].state->start_time;
-			if ((time - philo[i].last_eat) >= philo[i].state->time_to_die
-				&& philo[i].status != EATING)
+			// printf ("id %d \ntime : %lld\n,  last: %lld\n , start: %lld\n, status %d\n",philo[i].id,
+			// (get_time() - philo[i].last_eat), philo[i].last_eat, get_time(), philo[i].status);
+
+			if ((get_time() - philo[i].last_eat) > philo[i].state->time_to_die
+				&& !philo[i].eat)
 			{
 				pthread_mutex_lock(&philo->state->printing_lock);
 				pthread_mutex_lock(&philo[i].eating);
-				printf("%lld %d dead", timestamp(philo), philo->id + 1);
+				printf("%lld %d dead\n", timestamp(philo), philo->id + 1);
 				return (NULL);
 			}
+			usleep(100);
+			i++;
 		}
 	}
 	return (NULL);

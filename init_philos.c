@@ -68,13 +68,15 @@ t_philo		*init_philos(int argc, char **argv)
 		pthread_mutex_init(&data->forks[i], NULL);
 
 	// init philos struct
-	philos = malloc(sizeof(t_global) * data->philos_nb);
+	philos = malloc(sizeof(t_philo) * data->philos_nb);
 	i = -1;
 	while (++i < data->philos_nb)
 	{
 		philos[i].id = i;
 		philos[i].state = data;
+		philos[i].eat = 0;
 		philos[i].nb_eats = 0;
+		philos[i].last_eat = get_time();
 		pthread_mutex_init(&philos[i].eating, NULL);
 	}
 	return (philos);
