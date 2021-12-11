@@ -6,13 +6,13 @@
 #    By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/24 11:42:25 by atahiri           #+#    #+#              #
-#    Updated: 2021/12/10 15:35:45 by atahiri          ###   ########.fr        #
+#    Updated: 2021/12/11 09:13:52 by atahiri          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = 		philo
 
-FLAGS = -Wall -Wextra -Werror -g #-fsanitize=address
+FLAGS = -Wall -Wextra -Werror -g -fsanitize=address
 
 INCLUDES =	philosophers.h
 
@@ -35,5 +35,6 @@ clean:
 
 fclean: 	clean
 			@rm -rf $(NAME)
+			@rm -rf philo.dSYM
 
 re: 		fclean all

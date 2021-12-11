@@ -6,13 +6,13 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 10:06:55 by atahiri           #+#    #+#             */
-/*   Updated: 2021/12/10 23:54:19 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/12/11 09:09:35 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
-void	print(int state,t_philo *philo)
+void	print(int state, t_philo *philo)
 {
 	pthread_mutex_lock(&philo->state->printing_lock);
 	if (state  == 0)

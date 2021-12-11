@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 13:27:24 by atahiri           #+#    #+#             */
-/*   Updated: 2021/12/10 23:53:52 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/12/11 10:41:52 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,17 @@ void	*routine(void *data)
 		start_thinking(philo);
 	}
 	return NULL;
+}
+
+int		check_number_of_eatings(t_philo philo, int nb)
+{
+	if (nb == philo.state->must_eat_nb)
+	{
+		pthread_mutex_lock(&philo.state->printing_lock);
+		printf("each philosopher ate %d times", philo.state->must_eat_nb);
+		return (1);
+	}
+	return (0);
 }
 
 void	*supervisor(void *philos)
@@ -53,6 +64,8 @@ void	*supervisor(void *philos)
 				return (NULL);
 			}
 			usleep(100);
+			if (philo->state->it_must_eat == 1 && check_number_of_eatings(philo[i], philo[i].nb_eats))
+				return (NULL);
 			i++;
 		}
 	}
