@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 13:27:24 by atahiri           #+#    #+#             */
-/*   Updated: 2021/12/11 11:54:48 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/12/12 12:33:26 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void *supervisor(void *philos)
 
 	philo = (t_philo *)philos;
 	// printf ("nb %d\n", philo[0].state->philos_nb);
-	usleep(100);
+	
 	while (1)
 	{
 		i = 0;
@@ -74,6 +74,7 @@ void *supervisor(void *philos)
 			}
 			i++;
 		}
+		usleep(100);
 	}
 	return (NULL);
 }
