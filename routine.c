@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 10:06:55 by atahiri           #+#    #+#             */
-/*   Updated: 2021/12/12 12:59:48 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/12/12 15:15:10 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ void	print(int state, t_philo *philo)
 		printf("%lld %d is thinking\n", timestamp(philo), philo->id + 1);
 	else if (state == 4)
 		printf("%lld %d has taken a fork\n", timestamp(philo), philo->id + 1);
-	pthread_mutex_unlock(&philo->state->printing_lock);
+	if (state != 3)
+		pthread_mutex_unlock(&philo->state->printing_lock);
 }
 
 void	start_eating(t_philo *philo)
