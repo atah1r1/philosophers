@@ -6,27 +6,27 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 11:40:00 by atahiri           #+#    #+#             */
-/*   Updated: 2021/12/10 15:35:40 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/12/12 16:38:47 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHILOSOPHERS_H
 # define PHILOSOPHERS_H
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <pthread.h>
-#include <sys/time.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include <pthread.h>
+# include <sys/time.h>
 
-typedef enum s_status {
+typedef enum e_status {
 	EATING,
 	SLEEPING,
 	THINKING,
 	DEAD
 }			t_status;
 
-typedef struct	s_global 
+typedef struct s_global
 {
 	int					philos_nb;
 	unsigned long long	start_time;
@@ -34,7 +34,7 @@ typedef struct	s_global
 	unsigned long long	time_to_eat;
 	unsigned long long	time_to_sleep;
 	int					must_eat_nb;
-	int 				it_must_eat;
+	int					it_must_eat;
 	pthread_mutex_t		*forks;
 	pthread_mutex_t		printing_lock;
 }				t_global;

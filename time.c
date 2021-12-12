@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 22:26:02 by atahiri           #+#    #+#             */
-/*   Updated: 2021/12/12 15:21:30 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/12/12 16:38:04 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ unsigned long long	get_time(void)
 
 void	myusleep(unsigned long long time)
 {
-	unsigned long long current_time;
+	unsigned long long	current_time;
 
 	current_time = get_time();
 	usleep((time * 1e3) - 10000);

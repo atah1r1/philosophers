@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 11:39:28 by atahiri           #+#    #+#             */
-/*   Updated: 2021/12/10 16:04:45 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/12/12 16:28:49 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	error_handling(int argc, char **args)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	if (argc != 5 && argc != 6)
@@ -32,7 +32,7 @@ int	error_handling(int argc, char **args)
 	return (0);
 }
 
-int		main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_philo		*philos;
 	pthread_t	*threads;

@@ -6,13 +6,13 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 12:18:40 by atahiri           #+#    #+#             */
-/*   Updated: 2021/11/24 12:21:07 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/12/12 16:18:33 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philosophers.h"
 
-int		ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	int			i;
 	int			sign;
@@ -21,11 +21,8 @@ int		ft_atoi(const char *str)
 	i = 0;
 	sign = 1;
 	result = 0;
-	while (str[i] == ' ' ||
-			str[i] == '\t' ||
-			str[i] == '\n' ||
-			str[i] == '\v' ||
-			str[i] == '\r' || str[i] == '\f')
+	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n'
+		|| str[i] == '\v' || str[i] == '\r' || str[i] == '\f')
 		i++;
 	if (str[i] == '+' || str[i] == '-')
 	{
